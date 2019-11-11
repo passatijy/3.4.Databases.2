@@ -14,3 +14,9 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Tags(models.Model):
+
+    name = models.CharField(max_length=30, verbose_name='тэги')
+
