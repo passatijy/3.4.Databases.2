@@ -20,3 +20,17 @@ class Tags(models.Model):
 
     name = models.CharField(max_length=30, verbose_name='тэги')
 
+    class Meta:
+        verbose_name = 'Tag'
+        verbose_name_plural = 'Tags'
+
+    def __str__(self):
+        return self.name
+
+
+class Scopes(models.Model):
+
+    article = models.ForeignKey(Article, related_name='scope', on_delete=models.CASCADE)
+    tag = models.ForeignKey(Tags, related_name='scope', on_delete=models.CASCADE)
+
+
