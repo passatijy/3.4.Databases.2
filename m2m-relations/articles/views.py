@@ -6,7 +6,7 @@ from articles.models import Article
 
 def articles_list(request):
     template = 'articles/news.html'
-    mymy={'title':'fignya','text':'this is nasha erunda'}
+
     articles_data = Article.objects.all()
     context = {'object_list':articles_data}
 
