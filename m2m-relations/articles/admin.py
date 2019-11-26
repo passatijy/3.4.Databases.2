@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.core.exceptions import ValidationError
 from django.forms import BaseInlineFormSet
-from .models import Article, Tags, Scopes
+from .models import Article, Tag, Scope
 # user admin, pass admin
 
 '''
@@ -22,20 +22,20 @@ class ScopesInlineFormset(BaseInlineFormSet):
         return super().clean()  # вызываем базовый код переопределяемого метода
 '''
 #@admin.register(Category)
-class ScopesInline(admin.TabularInline):
-    model = Scopes
+class ScopeInline(admin.TabularInline):
+    model = Scope
 #    formset = ScopesInlineFormset
     extra = 0
     pass
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    inlines = [ScopesInline,]
+    inlines = [ScopeInline,]
     pass
 
 
-@admin.register(Tags)
-class TagsAdmin(admin.ModelAdmin):
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
 #   inlines = [ CategoryInline,]
     pass
 

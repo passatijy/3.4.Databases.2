@@ -12,10 +12,13 @@
  -->
 
    {% for obj_student in object_list %}
-    <p>{{ obj_student.name }}</p>
+    Студент: {{ obj_student.name }} <br>
+    Группа: {{ obj_student.group }} 
       {% for teacher in obj_student.teacher.all %}
-      <li>{{ obj_student.name }} {{ obj_student.group }} <br> Преподаватель: {{ student.teacher.name }} {{ student.teacher.subject }}</li>
+      <li> Преподаватель: {{ teacher.name }} Предмет: {{ teacher.subject }}</li>
       {% endfor %}
+      <br>
+
   {% endfor %}
 
   </ul>
